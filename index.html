@@ -34,12 +34,23 @@
           console.log("YOU win!!!");
         } else if (compare == "scissor" && computerChoice == "paper") {
           console.log("YOU win!!!");
-        } else {
+        } else if (compare == "scissor" && computerChoice == "rock") {
           console.log("computer wins");
+        } else {
+          console.log("invalid input!! please enter valid input");
         }
       }
       compareResults();
     </script>
+    <style>
+      li {
+        font-size: 22px;
+      }
+      h1 {
+        margin: 14px;
+        text-transform: uppercase;
+      }
+    </style>
   </head>
   <body>
     <h1>how to play:</h1>
