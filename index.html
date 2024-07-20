@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <script>
+      let input = prompt("choose rock paper or scissors:");
+      let compare = input.toLowerCase();
+      function getComputerChoice() {
+        value = Math.random();
+        if (value < 0.4) {
+          choice = "rock";
+        }
+        if (value > 0.4 && value < 0.6) {
+          choice = "paper";
+        } else {
+          choice = "scissor";
+        }
+        return choice;
+      }
+      //   console.log("computer choose", getComputerChoice());
+      let computerChoice = getComputerChoice();
+      function compareResults() {
+        if (compare === computerChoice) {
+          console.log(`computer choose ${compare} it's a tie`);
+        } else if (compare == "rock" && computerChoice == "paper") {
+          console.log(`computer choose ${computerChoice}`);
+          console.log("computer wins");
+        } else if (compare == "rock" && computerChoice == "scissor") {
+          console.log(`computer choose ${computerChoice}`);
+          console.log("YOU WIN!!!!!!");
+        } else if (compare == "paper" && computerChoice == "scissor") {
+          console.log(`computer choose ${computerChoice}`);
+          console.log("computer wins");
+        } else if (compare == "paper" && computerChoice == "rock") {
+          console.log(`computer choose ${computerChoice}`);
+          console.log("YOU win!!!");
+        } else if (compare == "scissor" && computerChoice == "paper") {
+          console.log(`computer choose ${computerChoice}`);
+          console.log("YOU win!!!");
+        } else {
+          console.log(`computer choose ${computerChoice}`);
+          console.log("computer wins");
+        }
+      }
+      compareResults();
+    </script>
+  </head>
+  <body></body>
+</html>
