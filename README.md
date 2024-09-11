@@ -1,5 +1,7 @@
 # Tic-tac-toe
 
-This is Tic-tac-toe game made using simple javascript function and loops
+This is my first js game made completely out of javascript.
 <br>
-This project was inspired from The Odin Project tic-tac-toe project;
+ps: it is not a tic-tac-toe but rock paper scissor game and yes it's a mistake
+but i don't know how to fix this
+//issues- remaining: when user inputs invalid data it says the game is tie.
