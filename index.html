@@ -5,42 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe</title>
     <script>
-      let input = prompt("choose rock, paper or scissors:");
-      let compare = input.toLowerCase();
+      let humanScore = 0;
+      let computerScore = 0;
+      function getHumanChoice() {
+        let input = prompt("choose rock, paper or scissor:");
+        let humanChoiceLwr = input.toLowerCase();
+        return humanChoiceLwr;
+      }
       function getComputerChoice() {
+        let choice;
         value = Math.random();
         if (value < 0.4) {
           choice = "rock";
         }
-        if (value > 0.4 && value < 0.6) {
+        if (value < 0.6) {
           choice = "paper";
         } else {
           choice = "scissor";
         }
         return choice;
       }
-      console.log("computer choose", getComputerChoice());
-      let computerChoice = getComputerChoice();
-      function compareResults() {
-        if (compare === computerChoice) {
-          console.log(`computer choose ${compare} it's a tie`);
-        } else if (compare == "rock" && computerChoice == "paper") {
-          console.log("computer wins");
-        } else if (compare == "rock" && computerChoice == "scissor") {
-          console.log("YOU WIN!!!!!!");
-        } else if (compare == "paper" && computerChoice == "scissor") {
-          console.log("computer wins");
-        } else if (compare == "paper" && computerChoice == "rock") {
-          console.log("YOU win!!!");
-        } else if (compare == "scissor" && computerChoice == "paper") {
-          console.log("YOU win!!!");
-        } else if (compare == "scissor" && computerChoice == "rock") {
-          console.log("computer wins");
+
+      function playRound(computerChoice, humanChoice) {
+        console.log(`you choose ${humanChoice}`);
+        console.log(`computer choose ${computerChoice}`);
+
+        if (humanChoice === computerChoice) {
+          console.log(`computer also choose ${humanChoice} it's a tie`);
+        } else if (
+          (humanChoice == "rock" && computerChoice == "paper") ||
+          (humanChoice == "paper" && computerChoice == "scissor") ||
+          (humanChoice == "scissor" && computerChoice == "rock")
+        ) {
+          // console.log("computer wins");
+          return "computer";
+        } else if (
+          (humanChoice == "rock" && computerChoice == "scissor") ||
+          (humanChoice == "paper" && computerChoice == "rock") ||
+          (humanChoice == "scissor" && computerChoice == "paper")
+        ) {
+          return "human";
         } else {
           console.log("invalid input!! please enter valid input");
+          return "invalid!";
         }
       }
-      compareResults();
+      function playGame() {
+        for (let i = 0; i < 5; i++) {
+          let computerChoice = getComputerChoice();
+          // console.log(computerChoice);
+          let humanChoice = getHumanChoice();
+
+          let roundResult = playRound(computerChoice, humanChoice);
+          if (roundResult === "human") {
+            humanScore += 1;
+            console.log("you win ");
+            console.log(
+              `human score=${humanScore} computerScore=${computerScore}`
+            );
+          } else if (roundResult === "computer") {
+            computerScore += 1;
+            console.log("computer win");
+            console.log(
+              `human score=${humanScore} computerScore=${computerScore}`
+            );
+          } else {
+            console.log("it's a tie");
+            console.log(
+              `human score=${humanScore} computerScore=${computerScore}`
+            );
+          }
+          console.log("-------------------------");
+        }
+        if (humanScore > computerScore) {
+          console.log("player wins");
+        } else if (humanScore < computerScore) {
+          console.log("computer wins");
+        } else {
+          console.log("it's a tie.");
+        }
+      }
+      playGame();
     </script>
     <style>
       li {
