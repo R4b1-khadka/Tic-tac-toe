@@ -51,7 +51,7 @@
         }
       }
       function playGame() {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 1; i++) {
           let computerChoice = getComputerChoice();
           // console.log(computerChoice);
           let humanChoice = getHumanChoice();
@@ -91,6 +91,8 @@
         }
       }
       playGame();
+      const btn = document.getElementsByClassName("btn");
+      // btn.addEventListener("click", alert("hello"));
     </script>
     <style>
       li {
@@ -103,7 +105,12 @@
     </style>
   </head>
   <body>
-    <h1>how to play:</h1>
+    <div>
+      <button class="btn rock">Rock</button>
+      <button class="btn paper">Paper</button>
+      <button class="btn scissor">Scissor</button>
+    </div>
+    <!-- <h1>how to play:</h1>
     <ul>
       <li>Input your choice</li>
       <li>
@@ -112,6 +119,6 @@
       </li>
       <li>view the game and see who wins on console panel</li>
       <li>click refresh if you want to play again</li>
-    </ul>
+    </ul> -->
   </body>
 </html>
