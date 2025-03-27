@@ -8,7 +8,7 @@ const scissor = document.querySelector(".scissor");
 function getComputerChoice() {
   let choice;
   value = Math.random();
-  console.log(value);
+
   if (value < 0.4) {
     choice = "rock";
   } else if (value < 0.6) {
@@ -34,16 +34,14 @@ scissor.addEventListener("click", () => {
   countScore(winner);
 });
 function playRound(computerChoice, humanChoice) {
-  const output = document.querySelector(".result");
-  const header = document.createElement("div");
+  // const output = document.querySelector(".result");
+  // const header = document.createElement("div");
 
-  header.textContent = `computer choose: ${computerChoice}`;
-  header.style.fontSize = "25px";
-  output.appendChild(header);
+  // header.textContent = `computer choose: ${computerChoice}`;
+  // header.style.fontSize = "25px";
+  // output.appendChild(header);
 
-  if (humanChoice === computerChoice) {
-    console.log(`computer also choose ${humanChoice} it's a tie`);
-  } else if (
+  if (
     (humanChoice == "rock" && computerChoice == "paper") ||
     (humanChoice == "paper" && computerChoice == "scissor") ||
     (humanChoice == "scissor" && computerChoice == "rock")
@@ -57,6 +55,9 @@ function playRound(computerChoice, humanChoice) {
   ) {
     console.log("you win");
     return "human";
+  } else {
+    console.log(`computer also choose ${humanChoice} it's a tie`);
+    return "tie";
   }
 }
 function countScore(roundResult) {
