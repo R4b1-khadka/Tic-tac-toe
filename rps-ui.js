@@ -55,9 +55,6 @@ function playRound(computerChoice, humanChoice) {
   ) {
     console.log("you win");
     return "human";
-  } else {
-    console.log("invalid input!! please enter valid input");
-    return "invalid!";
   }
 }
 function countScore(roundResult) {
