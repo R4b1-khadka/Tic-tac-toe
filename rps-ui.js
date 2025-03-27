@@ -5,6 +5,12 @@ const rock = document.getElementById("rock");
 const paper = document.querySelector(".paper");
 const scissor = document.querySelector(".scissor");
 
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
+  console.log(`human score=${humanScore} computerScore=${computerScore}`);
+}
+
 function getComputerChoice() {
   let choice;
   value = Math.random();
@@ -30,16 +36,17 @@ paper.addEventListener("click", () => {
 scissor.addEventListener("click", () => {
   let computerChoice = getComputerChoice();
   const winner = playRound(computerChoice, "scissor");
-  console.log(winner);
+
   countScore(winner);
+  // let dom= updateDOM(winner,computerChoice,"scissors")
 });
 function playRound(computerChoice, humanChoice) {
-  // const output = document.querySelector(".result");
-  // const header = document.createElement("div");
+  const output = document.querySelector(".result");
+  const header = document.createElement("div");
 
-  // header.textContent = `computer choose: ${computerChoice}`;
-  // header.style.fontSize = "25px";
-  // output.appendChild(header);
+  header.textContent = `computer choose: ${computerChoice}`;
+  header.style.fontSize = "25px";
+  output.appendChild(header);
 
   if (
     (humanChoice == "rock" && computerChoice == "paper") ||
@@ -63,15 +70,22 @@ function playRound(computerChoice, humanChoice) {
 function countScore(roundResult) {
   if (roundResult === "human") {
     humanScore += 1;
-    console.log("you win ");
+
     console.log(`human score=${humanScore} computerScore=${computerScore}`);
   } else if (roundResult === "computer") {
     computerScore += 1;
-    console.log("computer win");
+
     console.log(`human score=${humanScore} computerScore=${computerScore}`);
   } else {
-    console.log("it's a tie");
     console.log(`human score=${humanScore} computerScore=${computerScore}`);
+  }
+
+  if (humanScore === 3) {
+    console.log(" you are the winnner");
+    resetGame();
+  } else if (computerScore === 3) {
+    console.log("computer win this game");
+    resetGame();
   }
 
   // if (humanScore > computerScore) {
